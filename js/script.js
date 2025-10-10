@@ -1,164 +1,128 @@
-// ✅ --- Función para enviar mensaje por WhatsApp ---
-function enviarWhatsApp(nombreProducto) {
-  const telefono = "51903525222"; // Tu número real con código de país
-  const mensaje = `Hola! Me interesa el producto: ${nombreProducto}`;
-  const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
-  window.open(url, "_blank");
-}
-
-// ✅ --- Lista de productos ---
+// ==========================
+// 📦 LISTA DE PRODUCTOS
+// ==========================
 const productos = [
-  {
-    nombre: "Perfume Dior Sauvage",
-    precio: "S/ 249.90",
-    categoria: "perfume",
-    imagen:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAaWN115ekVRvd1yapIDyjUoyXNk00UAs8-weOxTjtGJme95Ewe__jHBmcPyZ_ku48AuhTUhR97ud4BAlZMvkXwO7NGzD6OrSDG1gvt0j0TbYRGq9BnoOCP_0NxYGP-SXwJXKpDJ30H6ahcjoDvj16nHlmmAzqh-722_ytBLXqzYhhlWds1EOaDL16MvLHyzDsg4ytxqJIQcTwo72cqXL75Vm3zNIs4Q-ZbfNMPmDeEEUb3v1pUC7hnPYRzAccytSzV4wiV4MLQb4da",
-  },
-  {
-    nombre: "Good Girl Carolina Herrera",
-    precio: "S/ 279.90",
-    categoria: "perfume",
-    imagen:
-      "https://i.pinimg.com/736x/00/6e/57/006e573272a9ae68d90b0eb8c81b17b5.jpg",
-  },
-  {
-    nombre: "Crema Facial Hidratante",
-    precio: "S/ 89.90",
-    categoria: "piel",
-    imagen:
-      "https://cdn.pixabay.com/photo/2020/11/26/10/28/skincare-5779776_1280.jpg",
-  },
-  {
-    nombre: "Vestido Floral de Verano",
-    precio: "S/ 129.90",
-    categoria: "ropa",
-    imagen:
-      "https://cdn.pixabay.com/photo/2016/03/27/19/33/fashion-1283863_960_720.jpg",
-  },
+  { id: 1, nombre: "Perfume Floral", categoria: "perfume", precio: "S/ 89.90", imagen: "img/perfume1.jpg" },
+  { id: 2, nombre: "Perfume Amaderado", categoria: "perfume", precio: "S/ 99.90", imagen: "img/perfume2.jpg" },
+  { id: 3, nombre: "Blusa Elegante", categoria: "ropa", precio: "S/ 59.90", imagen: "img/ropa1.jpg" },
+  { id: 4, nombre: "Polo Casual", categoria: "ropa", precio: "S/ 39.90", imagen: "img/ropa2.jpg" },
+  { id: 5, nombre: "Crema Hidratante", categoria: "piel", precio: "S/ 49.90", imagen: "img/piel1.jpg" },
+  { id: 6, nombre: "Mascarilla Facial", categoria: "piel", precio: "S/ 29.90", imagen: "img/piel2.jpg" },
+  { id: 7, nombre: "Perfume Cítrico", categoria: "perfume", precio: "S/ 84.90", imagen: "img/perfume3.jpg" },
+  { id: 8, nombre: "Vestido de Verano", categoria: "ropa", precio: "S/ 89.00", imagen: "img/ropa3.jpg" },
+  { id: 9, nombre: "Sérum Facial", categoria: "piel", precio: "S/ 69.90", imagen: "img/piel3.jpg" },
 ];
 
-// ✅ --- Referencias del DOM ---
+// ==========================
+// ⚙️ VARIABLES GLOBALES
+// ==========================
 const contenedor = document.getElementById("productos-container");
-const botonVerMas = document.getElementById("ver-mas");
+const botonesFiltro = document.querySelectorAll(".filter-btn");
+const verMasBtn = document.getElementById("ver-mas");
+const searchDesktop = document.getElementById("search-desktop");
+const searchMobile = document.getElementById("search-mobile");
 
-// Verificar existencia para evitar errores
-if (!contenedor) {
-  console.warn("⚠️ No se encontró el contenedor de productos.");
-} else {
-  let productosMostrados = 0;
-  let categoriaSeleccionada = "all";
+let productosVisibles = 6;
+let categoriaSeleccionada = "all";
+let textoBusqueda = "";
 
-  // Detectar si estamos en productos.html
-  const esPaginaProductos = window.location.pathname.includes("productos.html");
+// ==========================
+// 🧩 FUNCIONES PRINCIPALES
+// ==========================
+function mostrarProductos() {
+  if (!contenedor) return; // Si no hay contenedor (ej. en otra página), salir
 
-  // Si estamos en productos.html mostramos todos, si no, solo 3
-  const cantidadPorCarga = esPaginaProductos ? productos.length : 3;
+  contenedor.innerHTML = "";
 
-  // --- Función para limpiar el contenedor antes de mostrar ---
-  function limpiarProductos() {
-    contenedor.innerHTML = "";
-    productosMostrados = 0;
-    if (botonVerMas) botonVerMas.style.display = "block";
-  }
-
-  // --- Función para cargar productos (respetando categoría) ---
-  function cargarProductos() {
-    const productosFiltrados =
-      categoriaSeleccionada === "all"
-        ? productos
-        : productos.filter((p) => p.categoria === categoriaSeleccionada);
-
-    const fin = productosMostrados + cantidadPorCarga;
-    const productosAmostrar = productosFiltrados.slice(productosMostrados, fin);
-
-    productosAmostrar.forEach((producto) => {
-      const tarjeta = document.createElement("div");
-      tarjeta.className =
-        "group relative overflow-hidden rounded-lg cursor-pointer opacity-0 translate-y-6 transition-all duration-700 ease-out";
-      tarjeta.onclick = () => enviarWhatsApp(producto.nombre);
-
-      tarjeta.innerHTML = `
-        <div
-          class="w-full h-64 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-          style="background-image: url('${producto.imagen}')"
-        ></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-        <p class="absolute bottom-10 left-4 text-gray-200 text-xl font-semibold">
-          ${producto.nombre}
-        </p>
-        <p class="absolute bottom-4 left-4 text-white text-xl font-bold">
-          ${producto.precio}
-        </p>
-      `;
-
-      contenedor.appendChild(tarjeta);
-
-      // Animación suave de aparición
-      setTimeout(() => {
-        tarjeta.classList.remove("opacity-0", "translate-y-6");
-        tarjeta.classList.add("opacity-100", "translate-y-0");
-      }, 100);
-    });
-
-    productosMostrados += productosAmostrar.length;
-
-    if (botonVerMas && productosMostrados >= productosFiltrados.length) {
-      botonVerMas.style.display = "none";
-    }
-  }
-
-  // --- Eventos de los botones de categoría ---
-  const botonesCategoria = document.querySelectorAll(".filter-btn");
-  botonesCategoria.forEach((boton) => {
-    boton.addEventListener("click", () => {
-      categoriaSeleccionada = boton.dataset.category;
-      limpiarProductos();
-      cargarProductos();
-
-      // Cambiar estilos activos
-      botonesCategoria.forEach((b) =>
-        b.classList.remove("bg-primary", "text-white")
-      );
-      boton.classList.add("bg-primary", "text-white");
-    });
+  let filtrados = productos.filter((p) => {
+    const coincideCategoria = categoriaSeleccionada === "all" || p.categoria === categoriaSeleccionada;
+    const coincideBusqueda = p.nombre.toLowerCase().includes(textoBusqueda.toLowerCase());
+    return coincideCategoria && coincideBusqueda;
   });
 
-  // --- Evento del botón “Ver más” ---
-  if (botonVerMas) {
-    botonVerMas.addEventListener("click", cargarProductos);
+  const productosAMostrar = filtrados.slice(0, productosVisibles);
+
+  if (productosAMostrar.length === 0) {
+    contenedor.innerHTML = `<p class="text-center text-gray-500 dark:text-gray-400">No se encontraron productos.</p>`;
+    if (verMasBtn) verMasBtn.style.display = "none";
+    return;
   }
 
-  // Si estamos en productos.html, ocultamos “ver más”
-  if (esPaginaProductos && botonVerMas) {
-    botonVerMas.style.display = "none";
+  productosAMostrar.forEach((producto) => {
+    const card = document.createElement("div");
+    card.className =
+      "bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition overflow-hidden";
+
+    card.innerHTML = `
+      <img src="${producto.imagen}" alt="${producto.nombre}" class="w-full h-56 object-cover">
+      <div class="p-4">
+        <h3 class="text-lg font-semibold mb-2">${producto.nombre}</h3>
+        <p class="text-primary font-bold mb-3">${producto.precio}</p>
+        <a href="https://wa.me/934991872?text=¡Hola!%20Estoy%20interesado%20en%20${encodeURIComponent(
+          producto.nombre
+        )}%20(${encodeURIComponent(producto.precio)})"
+          target="_blank"
+          class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition"
+        >
+          Consultar por WhatsApp
+        </a>
+      </div>
+    `;
+
+    contenedor.appendChild(card);
+  });
+
+  // Mostrar u ocultar el botón “Ver más”
+  if (verMasBtn) {
+    verMasBtn.style.display = filtrados.length > productosVisibles ? "block" : "none";
   }
-
-  // --- Función de búsqueda ---
-  function activarBuscador() {
-    const inputs = [
-      document.getElementById("search-desktop"),
-      document.getElementById("search-mobile"),
-    ];
-
-    inputs.forEach((input) => {
-      if (input) {
-        input.addEventListener("input", (e) => {
-          const searchText = e.target.value.toLowerCase();
-          const tarjetas = document.querySelectorAll("#productos-container > div");
-
-          tarjetas.forEach((tarjeta) => {
-            const nombre = tarjeta
-              .querySelector("p:first-of-type")
-              .textContent.toLowerCase();
-            tarjeta.style.display = nombre.includes(searchText) ? "" : "none";
-          });
-        });
-      }
-    });
-  }
-
-  // --- Inicialización ---
-  cargarProductos();
-  activarBuscador();
 }
+
+// ==========================
+// 🧭 EVENTOS
+// ==========================
+
+// Filtros de categoría (solo en productos.html)
+if (botonesFiltro.length > 0) {
+  botonesFiltro.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      botonesFiltro.forEach((b) => b.classList.remove("bg-primary", "text-white"));
+      botonesFiltro.forEach((b) => b.classList.add("bg-gray-200", "text-gray-800"));
+
+      btn.classList.add("bg-primary", "text-white");
+      btn.classList.remove("bg-gray-200", "text-gray-800");
+
+      categoriaSeleccionada = btn.dataset.category;
+      productosVisibles = 6;
+      mostrarProductos();
+    });
+  });
+}
+
+// Botón “Ver más”
+if (verMasBtn) {
+  verMasBtn.addEventListener("click", () => {
+    productosVisibles += 3;
+    mostrarProductos();
+  });
+}
+
+// Buscadores
+function actualizarBusqueda(e) {
+  textoBusqueda = e.target.value;
+  productosVisibles = 6;
+  mostrarProductos();
+}
+if (searchDesktop) searchDesktop.addEventListener("input", actualizarBusqueda);
+if (searchMobile) searchMobile.addEventListener("input", actualizarBusqueda);
+
+// ==========================
+// 🚀 INICIALIZAR
+// ==========================
+document.addEventListener("DOMContentLoaded", () => {
+  // Si estamos en index.html → muestra solo 3 productos destacados
+  if (window.location.pathname.includes("index.html") || window.location.pathname === "/") {
+    productosVisibles = 3;
+  }
+  mostrarProductos();
+});
