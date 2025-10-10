@@ -2,12 +2,12 @@
 // 📦 LISTA DE PRODUCTOS
 // ==========================
 const productos = [
-  { id: 1, nombre: "Perfume Floral", categoria: "perfume", precio: "S/ 89.90", imagen: "img/perfume1.jpg" },
-  { id: 2, nombre: "Perfume Amaderado", categoria: "perfume", precio: "S/ 99.90", imagen: "img/perfume2.jpg" },
-  { id: 3, nombre: "Blusa Elegante", categoria: "ropa", precio: "S/ 59.90", imagen: "img/ropa1.jpg" },
-  { id: 4, nombre: "Polo Casual", categoria: "ropa", precio: "S/ 39.90", imagen: "img/ropa2.jpg" },
-  { id: 5, nombre: "Crema Hidratante", categoria: "piel", precio: "S/ 49.90", imagen: "img/piel1.jpg" },
-  { id: 6, nombre: "Mascarilla Facial", categoria: "piel", precio: "S/ 29.90", imagen: "img/piel2.jpg" },
+  { id: 1, nombre: "Perfume Ekos Frescor Maracujá 150 ml", categoria: "perfume", precio: "S/ 79.00", imagen: "../img/Maracuja-Natura.webp" },
+  { id: 2, nombre: "Crema corporal Frutos Rojas Tododia 400 ml", categoria: "piel", precio: "S/ 52.00", imagen: "../img/Crema-frutas-rojas.webp" },
+  { id: 3, nombre: "Avon Onduty Men 50ml", categoria: "cuidado-personal", precio: "S/ 59.90", imagen: "../img/Avon-Onduty-50ml.jpg" },
+  { id: 4, nombre: "KaiaK Eau de Toilette", categoria: "perfume", precio: "S/ 39.90", imagen: "../img/KaiaK Eau de Toilette.webp" },
+  { id: 5, nombre: "Natura Humor Da Minha Vida 75 ml", categoria: "perfume", precio: "S/ 49.90", imagen: "../img/Natura Humor Da Minha Vida 75 ml.webp" },
+  { id: 6, nombre: " Tododia Body Splash Hojas de Limón y Guanábana", categoria: "perfume", precio: "S/ 29.90", imagen: "../img/Tododia Body Splash Hojas de Limón y Guanábana.jpg" },
   { id: 7, nombre: "Perfume Cítrico", categoria: "perfume", precio: "S/ 84.90", imagen: "img/perfume3.jpg" },
   { id: 8, nombre: "Vestido de Verano", categoria: "ropa", precio: "S/ 89.00", imagen: "img/ropa3.jpg" },
   { id: 9, nombre: "Sérum Facial", categoria: "piel", precio: "S/ 69.90", imagen: "img/piel3.jpg" },
@@ -49,28 +49,29 @@ function mostrarProductos() {
   }
 
   productosAMostrar.forEach((producto) => {
-    const card = document.createElement("div");
-    card.className =
-      "bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition overflow-hidden";
+  const card = document.createElement("div");
+  card.className =
+    "bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition overflow-hidden";
 
-    card.innerHTML = `
-      <img src="${producto.imagen}" alt="${producto.nombre}" class="w-full h-56 object-cover">
-      <div class="p-4">
-        <h3 class="text-lg font-semibold mb-2">${producto.nombre}</h3>
-        <p class="text-primary font-bold mb-3">${producto.precio}</p>
-        <a href="https://wa.me/934991872?text=¡Hola!%20Estoy%20interesado%20en%20${encodeURIComponent(
-          producto.nombre
-        )}%20(${encodeURIComponent(producto.precio)})"
-          target="_blank"
-          class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition"
-        >
-          Consultar por WhatsApp
-        </a>
-      </div>
-    `;
+  card.innerHTML = `
+    <img src="${producto.imagen}" alt="${producto.nombre}" class="w-full h-56 object-contain bg-white">
+    <div class="p-4">
+      <h3 class="text-lg font-semibold mb-2">${producto.nombre}</h3>
+      <p class="text-primary font-bold mb-3">${producto.precio}</p>
+      <a href="https://wa.me/934991872?text=¡Hola!%20Estoy%20interesado%20en%20${encodeURIComponent(
+        producto.nombre
+      )}%20(${encodeURIComponent(producto.precio)})"
+        target="_blank"
+        class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition"
+      >
+        Consultar por WhatsApp
+      </a>
+    </div>
+  `;
 
-    contenedor.appendChild(card);
-  });
+  contenedor.appendChild(card);
+});
+
 
   // Mostrar u ocultar el botón “Ver más”
   if (verMasBtn) {
