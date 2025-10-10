@@ -13,7 +13,7 @@ const productos = [
     categoria: "perfume",
     imagen:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuAaWN115ekVRvd1yapIDyjUoyXNk00UAs8-weOxTjtGJme95Ewe__jHBmcPyZ_ku48AuhTUhR97ud4BAlZMvkXwO7NGzD6OrSDG1gvt0j0TbYRGq9BnoOCP_0NxYGP-SXwJXKpDJ30H6ahcjoDvj16nHlmmAzqh-722_ytBLXqzYhhlWds1EOaDL16MvLHyzDsg4ytxqJIQcTwo72cqXL75Vm3zNIs4Q-ZbfNMPmDeEEUb3v1pUC7hnPYRzAccytSzV4wiV4MLQb4da",
-  },
+  },    
   {
     nombre: "Good Girl Carolina Herrera",
     precio: "S/ 279.90",
