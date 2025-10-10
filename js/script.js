@@ -114,8 +114,6 @@ botonesCategoria.forEach((boton) => {
 // Evento del botón “Ver más”
 botonVerMas.addEventListener("click", cargarProductos);
 
-// Carga inicial
-cargarProductos();
 if (esPaginaProductos) {
   botonVerMas.style.display = "none";
 }
