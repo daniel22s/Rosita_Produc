@@ -18,12 +18,15 @@ const productos = [
   {id: 14 , nombre: "Natura Águas Jabuticaba" , categoria: 'cuidado-personal' , precio: 'S/ 1.00' , imagen:'../img/aguas.webp' },
   {id: 15 , nombre: "Águas Jabuticaba de 150 ml" , categoria: 'perfume' , precio: 'S/ 1.0' , imagen:'../img/jabuticaba.webp' },
   {id: 16 , nombre: "Body Spa Kids Shampoo - Acondicionador" , categoria: 'cuidado-personal' , precio: 'S/ 1.0' , imagen:'../img/body-spa.webp' },
-  {id: 17 , nombre: "Total Block Jumbo SPF 100" , categoria: 'cuidado-personal' , precio: 'S/ 1.0' , imagen:'../img/protector.webp' },
-  {id: 18 , nombre: "" , categoria: '' , precio: '' , imagen:'' },
-  {id: 19 , nombre: "" , categoria: '' , precio: '' , imagen:'' },
-  {id: 20 , nombre: "" , categoria: '' , precio: '' , imagen:'' },
-  {id: 21 , nombre: "" , categoria: '' , precio: '' , imagen:'' },
-  {id: 22 , nombre: "" , categoria: '' , precio: '' , imagen:'' },
+  {id: 17 , nombre: "Total Block Jumbo SPF 100" , categoria: 'piel' , precio: 'S/ 1.0' , imagen:'../img/protector.webp' },
+  {id: 18 , nombre: "Ekos Tukumã - Crema " , categoria: 'piel' , precio: 'S/ 1.0' , imagen:'../img/tukuma.webp' },
+  {id: 19 , nombre: "EKOS Néctar hidratante maracuyá 400 ml" , categoria: 'piel' , precio: 'S/ 1.0' , imagen:'../img/nectar.webp' },
+  {id: 20 , nombre: "Crema para peinar Chocolate y Castaña de Brasil Avon Senses" , categoria: 'cuidado-personal' , precio: 'S/ 1.0' , imagen:'../img/peinar.webp' },
+  {id: 21 , nombre: "Shampoo L'Oréal Kids Manzanilla 265 ml" , categoria: 'cuidado-personal' , precio: 'S/ 1.0' , imagen:'../img/loreal.webp' },
+  {id: 22 , nombre: "Avon Universo Shampoo y Acondicionador 2 en 1 200 ml" , categoria: 'cuidado-personal' , precio: 'S/ 1.0' , imagen:'../img/shampoo.webp' },
+  {id: 23 , nombre: "Colonia Universo 150 ml" , categoria: 'perfume' , precio: 'S/ 1.0' , imagen:'../img/universo.webp' },
+  {id: 24 , nombre: "" , categoria: '' , precio: '' , imagen:'' },
+  {id: 25 , nombre: "" , categoria: '' , precio: '' , imagen:'' },
 
 ];
 
