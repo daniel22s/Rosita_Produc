@@ -7,10 +7,24 @@ const productos = [
   { id: 3, nombre: "Avon Onduty Men 50ml", categoria: "cuidado-personal", precio: "S/ 59.90", imagen: "../img/Avon-Onduty-50ml.jpg" },
   { id: 4, nombre: "KaiaK Eau de Toilette", categoria: "perfume", precio: "S/ 39.90", imagen: "../img/KaiaK Eau de Toilette.webp" },
   { id: 5, nombre: "Natura Humor Da Minha Vida 75 ml", categoria: "perfume", precio: "S/ 49.90", imagen: "../img/Natura Humor Da Minha Vida 75 ml.webp" },
-  { id: 6, nombre: " Tododia Body Splash Hojas de Limón y Guanábana", categoria: "perfume", precio: "S/ 29.90", imagen: "../img/Tododia Body Splash Hojas de Limón y Guanábana.jpg" },
-  { id: 7, nombre: "Perfume Cítrico", categoria: "perfume", precio: "S/ 84.90", imagen: "img/perfume3.jpg" },
-  { id: 8, nombre: "Vestido de Verano", categoria: "ropa", precio: "S/ 89.00", imagen: "img/ropa3.jpg" },
-  { id: 9, nombre: "Sérum Facial", categoria: "piel", precio: "S/ 69.90", imagen: "img/piel3.jpg" },
+  { id: 6, nombre: "Tododia Body Splash Hojas de Limón y Guanábana", categoria: "perfume", precio: "S/ 29.90", imagen: "../img/Tododia Body Splash Hojas de Limón y Guanábana.jpg" },
+  { id: 7, nombre: "Tododia Jabon Tocador Frutas Rojas", categoria: "cuidado-personal", precio: "S/ 84.90", imagen: "../img/Tododia-Jabon-Tocador.webp" },
+  { id: 8, nombre: "300 km/h Virtual Adrenaline", categoria: "perfume", precio: "S/ 89.00", imagen: "../img/virtual-adrenaline-300km.webp" },
+  { id: 9, nombre: "Kaiak Pulso 100 ml", categoria: "perfume", precio: "S/ 69.90", imagen: "../img/KAIAK-PULSO-100ML.webp" },
+  {id: 10, nombre: "Kaiak Tradicional 100 ml", categoria: 'perfume', precio: 'S/10.00', imagen:'../img/Kaiak-Tradicional.webp' },
+  {id: 11, nombre: "Perfume Masculino OHM" , categoria: 'perfume', precio: 'S/ 10.00', imagen:'../img/OHM.webp' },
+  {id: 12, nombre: "Perfume Masculino Xool" , categoria: 'perfume' , precio: 'S/ 1.00' , imagen:'../img/Perfume_Masculino_Xool.webp' },
+  {id: 13, nombre: "Horus Azul Marine 100 ml" , categoria: 'perfume' , precio: 'S/ 1.00' , imagen:'../img/Horus.webp' },
+  {id: 14 , nombre: "Natura Águas Jabuticaba" , categoria: 'cuidado-personal' , precio: 'S/ 1.00' , imagen:'../img/aguas.webp' },
+  {id: 15 , nombre: "Águas Jabuticaba de 150 ml" , categoria: 'perfume' , precio: 'S/ 1.0' , imagen:'../img/jabuticaba.webp' },
+  {id: 16 , nombre: "Body Spa Kids Shampoo - Acondicionador" , categoria: 'cuidado-personal' , precio: 'S/ 1.0' , imagen:'../img/body-spa.webp' },
+  {id: 17 , nombre: "Total Block Jumbo SPF 100" , categoria: 'cuidado-personal' , precio: 'S/ 1.0' , imagen:'../img/protector.webp' },
+  {id: 18 , nombre: "" , categoria: '' , precio: '' , imagen:'' },
+  {id: 19 , nombre: "" , categoria: '' , precio: '' , imagen:'' },
+  {id: 20 , nombre: "" , categoria: '' , precio: '' , imagen:'' },
+  {id: 21 , nombre: "" , categoria: '' , precio: '' , imagen:'' },
+  {id: 22 , nombre: "" , categoria: '' , precio: '' , imagen:'' },
+
 ];
 
 // ==========================
