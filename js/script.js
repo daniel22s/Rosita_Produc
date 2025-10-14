@@ -33,7 +33,7 @@ const productos = [
 // ==========================
 // ⚙️ VARIABLES GLOBALES
 // ==========================
-const contenedor = document.getElementById("productos-container");
+const contenedor = document.getElementById("productos-container");  
 const botonesFiltro = document.querySelectorAll(".filter-btn");
 const verMasBtn = document.getElementById("ver-mas");
 const searchDesktop = document.getElementById("search-desktop");
